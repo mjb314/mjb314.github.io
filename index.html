@@ -1,104 +1,79 @@
-<!DOCTYPE html>
 
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-  <title>M J Bryan - CUED</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+  <title>Max Langtry, Cambridge</title>
+  <!-- Link javascript scripts -->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="app.js"></script>
 </head>
+
+<!-- Link css scripts -->
+<link rel="stylesheet" href="HomepageStyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Finish page setup after load -->
+<script>
+  $(window).bind("load", function() {
+    // Initialise all nav objects after html loaded
+    initNav();
+    initModal();
+    // Set active link
+    document.getElementById("home").classList.add('active');
+    // Size cards
+    document.getElementById('cvCard').style.backgroundSize = '100%';
+    document.getElementById('projectCard').style.backgroundSize = '100%';
+  });
+</script>
+
+
 <body>
 
+  <!-- Side navigation bar -->
+  <div id="nav-placeholder"></div>
+  <script>
+    $.get("nav.html", function(data){
+        $("#nav-placeholder").replaceWith(data);
+    });
+  </script>
+  <!-- End of side navigation bar -->
 
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
+  <!-- Page content -->
+  <div id="pagecontent" class="content">
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-				  <li><a href="#">Projects</a></li>
-				  <!--<li><a href="#publications">Publications</a></li>-->
-				  <li><a href="#">CV</a></li> 
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-  
-  <!-- Page Content -->
-    <div class="container">
+    <div class="card-grid">
 
-        <div class="row">
+      <a id="Mopen" href="#">
+      <div id="cvCard" class="card" style="background-image:url('imgs/cv.jpg');">
+      <div class="card-text" style="color:black;">Curriculum Vitae</div>
+      </div>
+      </a>
 
-            <!-- Entries Column -->
-            <div class="col-md-8" style="height: 100vh;">
-                
-                <!-- Main Image -->
-                <img class="img-responsive" src="photo.gif" alt=""><br>
-                
-                <div style="margin-top:3%; text-align:justify;">                
-					<p>I am a PhD Student at the University of Cambridge, <a href="https://www.eng.cam.ac.uk/">Department of Engineering</a>, supervised by Dr Tore Butlin and Dr Ole Nielsen. My research focuses on ‘Hybrid machine learning and physics-based modelling for active noise control in automotive vehicles’ and is funded by the Bose Corporation (MA, USA).</p>
-					
-					<p>My particular interests include dynamics, vibrations, control, acoustics, and physics-informed machine learning.</p>
-					
-					<p>More to follow...</p>
-                </div>
-            </div> 
+      <a href="about.html">
+      <div class="card" style="background-image:url('imgs/profile_photo.jpg')">
+      <div class="card-text">About</div>
+      </div>
+      </a>
 
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div style="font-family: sans-serif; font-size: 32px;"><b>Matt Bryan</b></div><br>
-                <p><b>mjb314 at cam.ac.uk</b><br>
-                <p>Dynamics and Vibration Research Group<br>
-                Department of Engineering<br>
-                University of Cambridge<br>
-                Trumpington Street<br>
-                Cambridge <br>
-                CB2 1PZ<br>
-                </p>
-            </div>
-            
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <dd><a href="https://www.linkedin.com/in/m-j-bryan/">LinkedIn</a></dd>
-            </div>
-            
-            
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h2 id="publications">Publications</h2>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-            
-                <strong>Technical Reports</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
-
-            
-        </div>
-
-
+      <a href="research.html">
+      <div id="projectCard" class="card" style="background-image:url('imgs/test_map.png')">
+      <div class="card-text" style="color:black;">Research</div>
+      </div>
+      </a>
     </div>
-    <!-- /.container -->
-    
-</body>
+  </div>
+  <!-- End of page content -->
 
+  <!-- Modal overlay for CV -->
+  <div id="modal" class="modal">
+    <div id="Mclose" class="closeModal">&times;</div>
+    <div class="cvViewer">
+    <!-- <img src="imgs/cv.jpg" style="width: 100%;"></img> -->
+    <embed src="imgs/cv.pdf" style="width:100%;height:101%;" allowtransparency="true"></embed>
+    </div>
+  </div>
+  <!-- End of modal overlay for CV -->
+
+</body>
 </html>

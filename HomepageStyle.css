@@ -1,0 +1,435 @@
+/* CSS style sheet for test web page */
+
+/* Define base attributes and variables */
+:root {
+    font-size: 18px;
+    font-family: "Computer Modern Serif", sans-serif;
+    --transition-speed: 600ms;
+    --navWidth: 10rem;
+    --text-primary: black;
+    --text-secondary: white;
+    --bg-primary: white;
+    --bg-secondary: rgb(200, 200, 200);
+    --nav-color: rgb(240, 240, 240);
+    --highlight: rgb(133, 176, 154);
+  }
+  
+  /* see https://www.cam.ac.uk/brand-resources/guidelines/typography-and-colour/colour-palette */
+  .cam {
+    --text-primary: black;
+    --text-secondary: white;
+    --bg-primary: white;
+    --bg-secondary: rgb(200, 200, 200);
+    --nav-color: rgb(240, 240, 240);
+    --highlight: rgb(133, 176, 154);
+  }
+  
+  /* see https://www.ox.ac.uk/public-affairs/style-guide/digital-style-guide */
+  .ox {
+    --text-primary: #f3f1ee;
+    --text-secondary: #f3f1ee;
+    --bg-primary: #002147;
+    --bg-secondary: #5f9baf;
+    --nav-color: #193658;
+    --highlight: #a1c4d0;
+  }
+  
+  .emma {
+    --text-primary: white;
+    --text-secondary: white;
+    --bg-primary: #9dbcd4;
+    --bg-secondary: #02ccfe;
+    --nav-color: rgb(4, 0 ,89);
+    --highlight: rgb(255, 89, 91);
+  }
+  
+  .rg {
+    --text-primary: white;
+    --text-secondary: white;
+    --bg-primary: rgb(15, 5, 50); /* 32,11,56 */
+    --bg-secondary: #4b4c4c;
+    --nav-color: black;
+    --highlight: #e40017;
+  }
+  
+  /* Define tag styles required for side navigation bar */
+  
+  body {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    margin: 0;
+    padding: 0;
+  }
+  
+  main{
+    margin-left: var(--navWidth);
+    padding: 1rem;
+  }
+  
+  /* Convenience class to remove transitions temporarily*/
+  .notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }
+  
+  .navbar {
+    position: fixed;
+    transition: all var(--transition-speed) ease;
+    overflow: auto;
+    width: var(--navWidth);
+    height: 100%;
+    background-color: var(--nav-color);
+  }
+  
+  .navbar-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+    padding: 0;
+  }
+  
+  .btn-link {
+    display: block;
+    text-decoration: none;
+    color: var(--text-primary);
+    fill: var(--text-primary);
+    transition: opacity calc(var(--transition-speed)/2);
+  }
+  
+  .btn-link:last-child {
+    margin-left: auto;
+  }
+  
+  .btn-link:hover {
+    color: Hotpink;
+    fill: Hotpink;
+    text-decoration: none;
+  }
+  
+  
+  .navbar-nav{
+    list-style: none;
+    height: calc(100% - 2.5em);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity var(--transition-speed) ease;
+  }
+  
+  .nav-item{
+    padding: 0.25rem 0.75rem 0;
+    width: calc(100% - 1.5rem);
+    font-weight: bold;
+  }
+  
+  .nav-item:nth-last-child(2){
+    margin-top: auto;
+  }
+  
+  .nav-item:first-child {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
+  
+  .nav-item:last-child {
+    padding-bottom: 0.5rem;
+  }
+  
+  .nav-item-crestbox {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .crestbox-creast {
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-sublist {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem;
+    height: auto;
+    overflow: auto;
+  }
+  
+  .nav-sublist-item {
+    font-weight: normal;
+  }
+  
+  .nav-link {
+    display: flex;
+  }
+  
+  .navbar-nav a {
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    display: block;
+    color: var(--text-primary);
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+  
+  .navbar-nav a.active {
+    color: white;
+    background-color: var(--highlight);
+  }
+  
+  .navbar-nav a:link {
+    color: var(--text-primary);
+  }
+  
+  .navbar-nav a:hover:not(.active) {
+    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
+  }
+  
+  
+  /* Define a tag to contain content */
+  .content {
+    margin-left: var(--navWidth);
+    padding: 1rem;
+    transition: margin-left var(--transition-speed) ease;
+  }
+  
+  /* Define tag for content sections */
+  .section {
+    margin: 2.5vw, 2.5vw;
+    padding: 1vw;
+  }
+  
+  p {
+    margin-left: 2vw;
+  }
+  
+  h2 {
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 0px;
+  }
+  
+  figcaption{
+    text-align: center;
+  }
+  
+  /* Define cards */
+  .card {
+    background: white;
+    font-size: 3rem;
+    color: #fff;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    width: 100%;
+    padding-top: 162%;
+    /*height: 100%;*/
+    border-radius: 5vmin;
+    transition: all 500ms;
+    overflow: hidden;
+  
+    position: relative;
+  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   }
+  
+  .card:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transform: translateY(-0.55rem) scale(1.1);
+  }
+  
+  .card-text {
+    width: 100%;
+    position: absolute;
+    bottom: 1rem;
+    text-align: center;
+    font-size: 2.5vw;
+  }
+  
+  .card-grid {
+    display: grid;
+    gap: 2.5vw;
+    margin: 2.5%;
+  
+    grid-template-columns: repeat(auto-fit, minmax(33vh, 1fr));
+    grid-auto-rows: auto;
+  }
+  
+  /* Modal popup for displaying CV */
+  
+  /* The modal class sets a 'background' element the full size of the screen,
+  which is a flex box, onto which a viewer is placed. This element is used to
+  hide and show the viewer. */
+  .modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    z-index: 1;
+    background-color: rgba(0,0,0,0.4); /* black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  
+    visibility: hidden;
+    opacity: 0%;
+  
+    transition: all calc(var(--transition-speed)/2) ease;
+  }
+  
+  /* The viewer sits in the middle of the page, and has the pdf embeded on it */
+  .cvViewer {
+    background: white;
+    color: black;
+    margin: 2%;
+    box-shadow: rgba(3, 8, 20, 0.75) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.75) 0px 0.075rem 0.175rem;
+  
+    /* Set the size of the viewer */
+    width: 60%;
+    height: 100%;
+    border-radius: 2.5%;
+  
+    overflow: hidden; /* The pdf embedding will handle any scrolling */
+  }
+  
+  .cvViewer::-webkit-scrollbar { /* required if using an img instead of embed */
+    display: none;
+  }
+  
+  .closeModal { /* close button for modal popup */
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+  
+    /* Set absolute position in frame based off cvViewer dimensions */
+    position: fixed;
+    top: 2%;
+    left: 80.5%;
+  }
+  
+  .closeModal:hover, .closeModal:focus {
+    color: Hotpink;
+    cursor: pointer;
+  }
+  
+  /* Contact info card */
+  .contacts {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+  
+    width: auto;
+    margin: 0;
+    padding: 0 5%;
+    border-radius: 5px;
+  
+    font-size: 0.75rem;
+    font-weight: normal;
+  
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+  
+    transition: all calc(1.5*var(--transition-speed)) ease-out;
+  }
+  
+  ul.contacts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contacts li {
+    margin: 5% 0;
+  }
+  
+  .contacts a {
+    text-decoration: none;
+    color: var(--text-primary) !important; /* use !important to override navbar settings */
+  }
+  
+  .contacts a:hover {
+    color: var(--highlight) !important;
+  }
+  
+  /* About section styling */
+  .titleblock {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .titleblock-title {
+    display: inline-block;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .titleblock-title:hover {
+    color: var(--text-secondary);
+    background-color: var(--highlight);
+    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+    transform: translateY(-0.25rem) scale(1.1);
+  }
+  
+  .about-grid {
+    display: grid;
+    gap: 2.5vw;
+    margin: 2.5%;
+  
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-auto-rows: auto;
+    grid-template-rows: max-content;
+  }
+  
+  .about-box {
+    background: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: 1.5;
+  }
+  
+  .about-box sup { /* sort super-script line spacing */
+    vertical-align: top;
+    font-size: 0.75em;
+    }
+  
+  .about-box p {
+    margin: 0;
+    padding: 1rem;
+  }
+  
+   .about-box a {
+    text-decoration: none;
+    color: var(--highlight);
+  }
+  
+  .about-box a:hover {
+    color: Hotpink;
+  }
